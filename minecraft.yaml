@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: minecraft
+  labels:
+    name: "minecraft"
+spec:
+  replicas: 1
+  selector:
+    name: minecraft
+  template:
+    metadata:
+      labels:
+        name: minecraft
+    spec:
+      containers:
+      - name: "minecraft"
+        image: "itzg/minecraft-server"
+        env:
+        - name: "EULA"
+          value: "TRUE"
+        ports:
+        - containerPort: 25565
+        volumeMounts:
+        - name: minecraft-disk
+          mountPath: /data
+      volumes:
+      - name: minecraft-disk
+        gcePersistentDisk:
+          pdName: minecraft-disk
+          fsType: ext4
