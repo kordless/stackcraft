@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # generate a random hash
-ID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
+ID=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 5 | head -n 1)
 
 # build minecraft.yaml and minecraft-service.yaml
 sed -e "
