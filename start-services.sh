@@ -6,7 +6,7 @@ ID=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 5 | head -n 1)
 # build minecraft.yaml and minecraft-service.yaml
 sed -e "
 s,%ID%,$ID,g;
-" minecraft-template.yaml > minecraft-ser
+" minecraft-template.yaml > minecraft.yaml
 
 sed -e "
 s,%ID%,$ID,g;
