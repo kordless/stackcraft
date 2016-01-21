@@ -1,0 +1,8 @@
+        volumeMounts:
+        - name: minecraft-disk
+          mountPath: /data
+      volumes:
+      - name: minecraft-disk
+        gcePersistentDisk:
+          pdName: minecraft-disk
+          fsType: ext4

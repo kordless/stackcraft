@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: minecraft
+  name: minecraft-%ID%
 spec:
   ports:
     -
       port: 25565
       targetPort: 25565
   selector:
-    name: minecraft
+    name: minecraft-%ID%
   type: LoadBalancer

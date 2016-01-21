@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: minecraft-%ID%
+  labels:
+    name: "minecraft-%ID%"
+spec:
+  replicas: 1
+  selector:
+    name: minecraft-%ID%
+  template:
+    metadata:
+      labels:
+        name: minecraft-%ID%
+    spec:
+      containers:
+      - name: "minecraft-%ID%"
+        image: "itzg/minecraft-server"
+        env:
+        - name: "EULA"
+          value: "TRUE"
+        ports:
+        - containerPort: 25565
